@@ -7,7 +7,7 @@ import {
   REMOVE_FROM_CART,
 } from "../redux/actionTypes/actionTypes";
 import { MdDeleteForever } from "react-icons/md";
-import { addToCart } from "../redux/actions/productAction";
+import { addToCart, removeFromCart } from "../redux/actions/productAction";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -58,7 +58,11 @@ const ProductCard = ({ product }) => {
           <button
             title='Remove'
             onClick={() =>
-              dispatch({ type: REMOVE_FROM_CART, payload: product })
+              {
+                 // dispatch({ type: REMOVE_FROM_CART, payload: product })
+              console.log("first")
+              dispatch(removeFromCart(product))
+              }
             }
             className='flex justify-between px-3 bg-red-500 text-white p-1 rounded-full flex-1'
           >
